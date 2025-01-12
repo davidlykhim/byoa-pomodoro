@@ -15,7 +15,17 @@ body {
     background-attachment: fixed;
 }
 
+.layout-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
 .container {
+    flex: 0 1 400px;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.92);
     padding: 2rem;
@@ -128,4 +138,110 @@ h1 {
 
 .timer.running {
     animation: pulse 2s infinite;
+}
+
+.log-container {
+    height: 460px;
+    overflow-y: auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-container h2 {
+    flex-shrink: 0;
+}
+
+#session-log {
+    overflow-y: auto;
+    padding-right: 1rem;
+    flex-grow: 1;
+}
+
+/* Styling for the scrollbar */
+#session-log::-webkit-scrollbar {
+    width: 8px;
+}
+
+#session-log::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+#session-log::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+#session-log::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.log-entry {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    color: #4f566b;
+    line-height: 1.4;
+}
+
+.log-time {
+    color: #4a5d32;
+    font-weight: 700;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Update media query for better responsive behavior */
+@media (max-width: 900px) {
+    .layout-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 400px;
+    }
+} 
+
+.mode-buttons {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    margin-top: 1rem;
+}
+
+#work-mode, #break-mode {
+    flex: 1;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    border: 2px solid #e5e7eb;
+    padding: 0.75rem 1.5rem;
+}
+
+#work-mode {
+    border-radius: 12px 0 0 12px;
+    border-right: 1px solid #e5e7eb;
+}
+
+#break-mode {
+    border-radius: 0 12px 12px 0;
+    border-left: 1px solid #e5e7eb;
+}
+
+#work-mode:hover, #break-mode:hover {
+    background-color: #e5e7eb;
+    transform: translateY(0px);
+}
+
+#work-mode.active {
+    background-color: #313131;
+    color: white;
+    border-color: #313131;
+}
+
+#break-mode.active {
+    background-color: #313131;
+    color: white;
+    border-color: #313131;
 } 
