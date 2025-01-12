@@ -1,8 +1,7 @@
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
     background: linear-gradient(
@@ -276,4 +275,29 @@ h1 {
     margin-bottom: 2.5rem;
     line-height: 1.5;
     color: #4f566b;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a {
+    color: #4a5d32;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #40512c;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
 } 

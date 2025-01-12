@@ -7,28 +7,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="layout-wrapper">
-        <div class="container">
-            <h1>Pomodoro Timer</h1>
-            <div class="timer">
-                <span id="minutes">25</span>:<span id="seconds">00</span>
-            </div>
-            <div class="controls">
-                <button id="start">Start</button>
-                <button id="pause">Pause</button>
-                <button id="reset">Reset</button>
-                <div class="mode-buttons">
-                    <button id="work-mode">Work</button>
-                    <button id="break-mode">Break</button>
+    <div class="main-content">
+        <div class="layout-wrapper">
+            <div class="container">
+                <h1>Pomodoro Timer</h1>
+                <div class="timer">
+                    <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+                <div class="controls">
+                    <button id="start">Start</button>
+                    <button id="pause">Pause</button>
+                    <button id="reset">Reset</button>
+                    <div class="mode-buttons">
+                        <button id="work-mode">Work</button>
+                        <button id="break-mode">Break</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container log-container">
-            <h2>Session Log</h2>
-            <div id="session-log"></div>
+            <div class="container log-container">
+                <h2>Session Log</h2>
+                <div id="session-log"></div>
+            </div>
         </div>
     </div>
+    <footer>
+        Made by <a href="https://davidlykhim.com">David Ly Khim</a>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html> 
