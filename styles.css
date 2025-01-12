@@ -300,4 +300,26 @@ footer a:hover {
     align-items: center;
     flex: 1;
     width: 100%;
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#clear-log {
+    background-color: #e5e7eb;
+    color: #4b5563;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+#clear-log:hover {
+    background-color: #d1d5db;
 } 

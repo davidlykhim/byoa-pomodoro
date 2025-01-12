@@ -3,6 +3,26 @@ let timerId = null;
 let isWorkTime = true;
 let sessionLog = [];
 
+// Load saved logs when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Get saved logs from localStorage, or use empty array if none exists
+    const savedLogs = localStorage.getItem('sessionLog');
+    if (savedLogs) {
+        sessionLog = JSON.parse(savedLogs);
+        updateLogDisplay();
+    }
+
+    // Add clear log button functionality
+    const clearLogButton = document.getElementById('clear-log');
+    clearLogButton.addEventListener('click', () => {
+        if (confirm('Are you sure you want to clear all logs?')) {
+            sessionLog = [];
+            localStorage.removeItem('sessionLog');
+            updateLogDisplay();
+        }
+    });
+});
+
 const minutesDisplay = document.getElementById('minutes');
 const secondsDisplay = document.getElementById('seconds');
 const startButton = document.getElementById('start');
@@ -40,13 +60,26 @@ function updateDisplay() {
 
 function addLogEntry(action) {
     const now = new Date();
-    const timeString = now.toLocaleTimeString();
+    // Format: "Mar 14, 2024, 2:30 PM"
+    const timeString = now.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+    });
+    const dateString = now.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+    });
+    
     const entry = {
+        date: dateString,
         time: timeString,
         action: action,
         mode: isWorkTime ? 'Work' : 'Break'
     };
-    sessionLog.unshift(entry); // Add to beginning of array
+    sessionLog.unshift(entry);
+    localStorage.setItem('sessionLog', JSON.stringify(sessionLog));
     updateLogDisplay();
 }
 
