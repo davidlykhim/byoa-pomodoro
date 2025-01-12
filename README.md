@@ -9,9 +9,6 @@ A simple pomodoro timer built with HTML, CSS, and JavaScript.
 - Sound notifications
 - Customizable timer duration
 - Responsive design
-- Dark mode
-- Light mode
-- System mode
 
 ## Installation
 
