@@ -244,4 +244,36 @@ h1 {
     background-color: #313131;
     color: white;
     border-color: #313131;
+}
+
+.empty-log {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #4f566b;
+}
+
+.empty-message {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    color: #4f566b;
+}
+
+.quote {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #2d3748;
+    line-height: 1.8;
+    padding: 2rem;
+    margin: 1rem 0;
+    background-color: #ebebeb;
+    border-radius: 8px;
+}
+
+.empty-message {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    color: #4f566b;
 } 

@@ -12,6 +12,24 @@ const modeText = document.getElementById('mode-text');
 const workButton = document.getElementById('work-mode');
 const breakButton = document.getElementById('break-mode');
 
+const inspirationalQuotes = [
+    "The only way to do great work is to love what you do. - Steve Jobs",
+    "It's not about perfect. It's about effort. - Jillian Michaels",
+    "Success is not final, failure is not fatal: it is the courage to continue that counts. - Winston Churchill",
+    "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
+    "The future depends on what you do today. - Mahatma Gandhi",
+    "Start where you are. Use what you have. Do what you can. - Arthur Ashe",
+    "Your time is limited, don't waste it living someone else's life. - Steve Jobs",
+    "Focus on being productive instead of busy. - Tim Ferriss",
+    "The way to get started is to quit talking and begin doing. - Walt Disney",
+    "Don't count the days, make the days count. - Muhammad Ali"
+];
+
+function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * inspirationalQuotes.length);
+    return inspirationalQuotes[randomIndex];
+}
+
 function updateDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -34,14 +52,24 @@ function addLogEntry(action) {
 
 function updateLogDisplay() {
     const logContainer = document.getElementById('session-log');
-    logContainer.innerHTML = sessionLog
-        .map(entry => `
-            <div class="log-entry">
-                <span class="log-time">${entry.time}</span> - 
-                ${entry.action} (${entry.mode} Mode)
+    
+    if (sessionLog.length === 0) {
+        logContainer.innerHTML = `
+            <div class="empty-log">
+                <p class="empty-message">You haven't started a session yet. Let's get started.</p>
+                <p class="quote">${getRandomQuote()}</p>
             </div>
-        `)
-        .join('');
+        `;
+    } else {
+        logContainer.innerHTML = sessionLog
+            .map(entry => `
+                <div class="log-entry">
+                    <span class="log-time">${entry.time}</span> - 
+                    ${entry.action} (${entry.mode} Mode)
+                </div>
+            `)
+            .join('');
+    }
 }
 
 function startTimer() {
@@ -110,4 +138,8 @@ breakButton.addEventListener('click', setBreakMode);
 
 // Initialize display
 updateDisplay();
-workButton.classList.add('active'); 
+workButton.classList.add('active');
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateLogDisplay();  // Initialize the log display
+}); 
